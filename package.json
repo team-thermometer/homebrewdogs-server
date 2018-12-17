@@ -10,7 +10,7 @@
         "db-load-all": "npm run recreate-tables && npm run load-seed-data",
         "lint": "eslint .",
         "pretest": "npm run lint",
-        "test": "exit 0",
+        "test": "npm run lint",
         "start": "nodemon server.js"
     },
     "dependencies": {
