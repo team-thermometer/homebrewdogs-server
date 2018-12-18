@@ -7,6 +7,18 @@ client.query(`
     username VARCHAR(256) NOT NULL,
     hash VARCHAR(256) NOT NULL
   );
+  CREATE TABLE IF NOT EXISTS beers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(256) NOT NULL,
+    type VARCHAR(32) NOT NULL,
+    profile_id INTEGER NOT NULL REFERENCES profile(id)
+  );
+  CREATE TABLE IF NOT EXISTS ratings (
+    id SERIAL PRIMARY KEY,
+    rating VARCHAR(256) NOT NULL,
+    beers_id INTEGER NOT NULL REFERENCES beers(id),
+    profile_id INTEGER NOT NULL REFERENCES profile(id)
+  );
 `)
   .then(
     () => console.log('create tables complete'),
