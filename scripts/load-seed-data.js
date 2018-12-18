@@ -3,7 +3,12 @@ require('dotenv').config();
 const client = require('../lib/db-client');
 const bcrypt = require('bcryptjs');
 
-const favorites = [];
+const favorites = [
+  {
+    name: 'Punk IPA',
+    type: 'IPA'
+  }
+];
 
 client.query(`
   INSERT INTO profile (username, hash)
@@ -19,8 +24,10 @@ client.query(`
         return client.query(`
       INSERT INTO favorite (name, type, profile_id)
       VALUES ($1, $2, $3)
+      RETURNING id;
     `,
-        [favorite.name, favorite.type, profile.id]);
+        [favorite.name, favorite.type, profile.id])
+          .then(result => result.rows[0].id);
       })
     );
   })
