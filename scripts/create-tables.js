@@ -7,7 +7,7 @@ client.query(`
     username VARCHAR(256) NOT NULL,
     hash VARCHAR(256) NOT NULL
   );
-  CREATE TABLE IF NOT EXISTS beers (
+  CREATE TABLE IF NOT EXISTS favorite (
     id SERIAL PRIMARY KEY,
     name VARCHAR(256) NOT NULL,
     type VARCHAR(32) NOT NULL,
@@ -16,7 +16,7 @@ client.query(`
   CREATE TABLE IF NOT EXISTS ratings (
     id SERIAL PRIMARY KEY,
     rating VARCHAR(256) NOT NULL,
-    beers_id INTEGER NOT NULL REFERENCES beers(id),
+    favorite_id INTEGER NOT NULL REFERENCES favorite(id),
     profile_id INTEGER NOT NULL REFERENCES profile(id)
   );
 `)
