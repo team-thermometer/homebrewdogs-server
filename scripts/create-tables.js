@@ -10,7 +10,6 @@ client.query(`
   CREATE TABLE IF NOT EXISTS favorite (
     id SERIAL PRIMARY KEY,
     name VARCHAR(256) NOT NULL,
-    type VARCHAR(32) NOT NULL,
     profile_id INTEGER NOT NULL REFERENCES profile(id)
   );
   CREATE TABLE IF NOT EXISTS ratings (
