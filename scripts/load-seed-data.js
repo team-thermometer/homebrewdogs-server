@@ -6,6 +6,8 @@ const bcrypt = require('bcryptjs');
 const favorites = [
   {
     name: 'Punk IPA',
+    ibu: 6.0,
+    abv: 60.0
   }
 ];
 
@@ -21,11 +23,11 @@ client.query(`
     return Promise.all(
       favorites.map(favorite => {
         return client.query(`
-      INSERT INTO favorite (name, profile_id)
-      VALUES ($1, $2)
-      RETURNING id, name;
+      INSERT INTO favorite (name, ibu, abv, profile_id)
+      VALUES ($1, $2, $3, $4)
+      RETURNING id, name, ibu, abv;
     `,
-        [favorite.name, profile.id])
+        [favorite.name, favorite.ibu, favorite.abv, profile.id])
           .then(result => result.rows[0].id);
       })
     );
