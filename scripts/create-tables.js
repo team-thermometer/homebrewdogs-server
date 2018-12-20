@@ -18,7 +18,7 @@ client.query(`
   CREATE TABLE IF NOT EXISTS ratings (
     id SERIAL PRIMARY KEY,
     rating FLOAT,
-    favorite_id INTEGER REFERENCES favorite(id)
+    favorite_id INTEGER REFERENCES favorite(id) ON DELETE CASCADE
   );
 `)
   .then(
