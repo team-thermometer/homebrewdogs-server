@@ -15,7 +15,8 @@ client.query(`
   CREATE TABLE IF NOT EXISTS ratings (
     id SERIAL PRIMARY KEY,
     rating INTEGER,
-    favorite_id INTEGER NOT NULL REFERENCES favorite(id)
+    favorite_id INTEGER NOT NULL REFERENCES favorite(id),
+    profile_id INTEGER NOT NULL REFERENCES profile(id)
   );
 `)
   .then(
