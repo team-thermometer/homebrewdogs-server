@@ -12,6 +12,7 @@ client.query(`
     name VARCHAR(256) NOT NULL,
     ibu INTEGER NOT NULL,
     abv INTEGER NOT NULL,
+    comments VARCHAR(256) NOT NULL,
     profile_id INTEGER NOT NULL REFERENCES profile(id)
   );
   CREATE TABLE IF NOT EXISTS ratings (
