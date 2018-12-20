@@ -10,8 +10,8 @@ client.query(`
   CREATE TABLE IF NOT EXISTS favorite (
     id SERIAL PRIMARY KEY,
     name VARCHAR(256) NOT NULL,
-    ibu FLOAT NOT NULL,
-    abv FLOAT NOT NULL,
+    ibu FLOAT,
+    abv FLOAT,
     profile_id INTEGER NOT NULL REFERENCES profile(id),
     api_id INTEGER
   );
