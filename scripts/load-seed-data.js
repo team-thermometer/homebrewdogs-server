@@ -32,11 +32,11 @@ client.query(`
       favorites.map(favorite => {
         return client.query(`
       INSERT INTO favorite (name, ibu, abv, comments, profile_id)
-      VALUES ($1, $2, $3, $4)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING id, name, ibu, abv, comments;
     `,
         [favorite.name, favorite.ibu, favorite.abv, favorite.comments, profile.id])
-          .then(result => result.rows);
+          .then(result => result.rows[0].id);
       })
     );
   })
