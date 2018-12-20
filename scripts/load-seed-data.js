@@ -7,7 +7,8 @@ const favorites = [
   {
     name: 'Punk IPA',
     ibu: 6.0,
-    abv: 60.0
+    abv: 60.0,
+    comments: "hoppy"
   }
 ];
 
@@ -31,12 +32,12 @@ client.query(`
     return Promise.all(
       favorites.map(favorite => {
         return client.query(`
-      INSERT INTO favorite (name, ibu, abv, profile_id)
-      VALUES ($1, $2, $3, $4)
-      RETURNING id, name, ibu, abv;
+      INSERT INTO favorite (name, ibu, abv, comments, profile_id)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id, name, ibu, abv, comments;
     `,
-        [favorite.name, favorite.ibu, favorite.abv, profile.id])
-          .then(result => result.rows);
+        [favorite.name, favorite.ibu, favorite.abv, favorite.comments, profile.id])
+          .then(result => result.rows[0].id);
       })
     );
   })

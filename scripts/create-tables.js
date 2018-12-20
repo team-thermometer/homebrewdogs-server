@@ -12,6 +12,7 @@ client.query(`
     name VARCHAR(256) NOT NULL,
     ibu FLOAT,
     abv FLOAT,
+    comments VARCHAR(256),
     profile_id INTEGER NOT NULL REFERENCES profile(id),
     api_id INTEGER
   );
