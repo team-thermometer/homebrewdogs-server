@@ -8,7 +8,7 @@ const favorites = [
     name: 'Punk IPA',
     ibu: 6.0,
     abv: 60.0,
-    comments: "hoppy"
+    comments: 'hoppy'
   }
 ];
 
