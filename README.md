@@ -10,3 +10,6 @@ Vue CLI, PostgreSQL, Express, JavaScript, HTML, CSS, PostCSS, Vue Rate-It
 
 ## Sources
  Punk Api: https://punkapi.com/documentation/v2
+
+// Include developer onboarding info
+// and API documentation
